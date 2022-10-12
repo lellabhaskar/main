@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>weather</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css"><!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script><!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="col-md-6 col-md-offset-3">
+
+<h1>Weather information</h1>
+<h1>Hello {{username}}</h1>
+<form method="post" action="/">
+    <input type="text" name="city" placeholder="enter cityname"/>
+    <button type="submit">Submit</button>
+
+</form>
+
+<!--    {% if weathinfo %}-->
+<!--    <h3>temparature: {{weathinfo.temp}}</h3>-->
+<!--<h3>longitude: {{weathinfo.lon}}</h3>-->
+<!--<h3>latitude: {{weathinfo.lat}}</h3>-->
+<!--<h3>city: {{weathinfo.city}}</h3>-->
+<!--<h3>sunrise datetime: {{weathinfo.sunrise}}</h3>-->
+<!--    {% endif %}-->
+
+    {% if weathinfo.status ==200 %}
+
+<!--     # picdata='http://openweathermap.org/img/w/50d.png'-->
+<!--<h3><a href="http://openweathermap/img/w">-->
+<!--    <img src="/50d.png">-->
+<!--    </a>-->
+<!--</h3>-->
+<!--<img src="http://openweathermap.org/img/w/50d.png" alt="image missing">-->
+
+<img src={{weathinfo.icon}} alt="image missing">
+
+<h3>temparature: {{weathinfo.temp}} &#8451;</h3>
+<h3>longitude: {{weathinfo.lon}} </h3>
+<h3>latitude: {{weathinfo.lat}}</h3>
+<h3>city: {{weathinfo.city}}</h3>
+<h3>sunrise datetime: {{weathinfo.sunrise}}</h3>
+    {% elif weathinfo.status ==404 %}
+    <h3>city not found</h3>
+    {% else %}
+    {% endif %}
+
+</div>
+</body>
+</html>
+

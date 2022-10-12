@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Login</title>
+</head>
+<h1>Welcome to Login Page</h1><br/>
+<body>
+<div>
+<form method="post" action="/login">
+    <input type="text" name="username" placeholder="enter username"/><br/><br/>
+    <input type="text" name="password" placeholder="enter password"/><br/><br/>
+    <button type="submit">Login</button>
+
+</form>
+
+    {% if not validuser %}
+<h3>please  register </h3>
+
+    {% endif %}
+<!--{% if validuser.status==404 %}-->
+<!--</h3><h3>user not found, Kindly please register </h3>-->
+<!--    {% else %}-->
+<!--    <h3>login sucessfullyd</h3>-->
+<!--    {% endif %}-->
+</div>
+</body>
+</html>
